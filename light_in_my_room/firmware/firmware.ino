@@ -2,7 +2,7 @@ int led_red = 14,
     led_gre = 12,
     led_blu = 13;
 
-int set = 2;
+int set = 2, set_old = 2;
 
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
@@ -22,10 +22,10 @@ void setup()
   pinMode(2, OUTPUT);
   while (WiFi.status() != WL_CONNECTED)
   {
-    digitalWrite(2, HIGH);
+    digitalWrite(2, LOW);
     delay(200);
     Serial.print(".");
-    digitalWrite(2, LOW);
+    digitalWrite(2, HIGH);
   }
 
   Serial.println("IP address: ");
@@ -41,7 +41,7 @@ void setup()
 void loop()
 {
   wifi();
-  
+
   if (set == 1)
     combination();
   else if (set == 2)
@@ -106,6 +106,7 @@ void wifi ()
     client.stop();
   }
 }
+
 String all_html ()
 {
   String _html = "";
@@ -136,29 +137,57 @@ String all_html ()
 
 void fade (int del)
 {
-  for (int i = 100; i < 255; i++)
+  Serial.println("primeiro for");
+  for (int i = 0; i < 255; i++)
   {
     analogWrite(led_red, i);
     analogWrite(led_blu, 255 - i);
+    Serial.println(i);
+
     wifi();
+    i = breck_for(i);
     delay(del);
   }
 
-  for (int i = 100; i < 255; i++)
+  Serial.println("segundo for");
+  for (int i = 0; i < 255; i++)
   {
     analogWrite(led_red, 255 - i);
     analogWrite(led_gre, i);
+    Serial.println(i);
+
     wifi();
+    i = breck_for(i);
     delay(del );
   }
 
-  for (int i = 100; i < 255; i++)
+  Serial.println("terceiro for");
+  for (int i = 0; i < 255; i++)
   {
     analogWrite(led_gre, 255 - i);
     analogWrite(led_blu, i);
+    Serial.println(i);
+
     wifi();
+    i = breck_for(i);
     delay(del );
   }
+}
+
+int breck_for (int i)
+{
+  Serial.print("set: ");
+  Serial.print(set);
+  Serial.print("  set_old: ");
+  Serial.println(set_old);
+
+  if (set != set_old)
+  {
+    set_old = set;
+    return 254;
+  }
+  else
+    return i;
 }
 
 void combination ()
