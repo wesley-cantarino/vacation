@@ -1,7 +1,7 @@
 Legenda
 	V - Concluido
 	T - Trabalhando
-	F - deu ruim
+	F - deu ruim, tipo muito!
 
 lm555
 - [V] Astable mode.
