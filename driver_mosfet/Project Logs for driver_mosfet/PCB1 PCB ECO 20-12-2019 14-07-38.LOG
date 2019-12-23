@@ -1,0 +1,4 @@
+Change Component Designator: OldDesignator=CN1 NewDesignator=ENTRADA
+Change Component Designator: OldDesignator=CN2 NewDesignator=ALIMENTACAO
+Change Component Designator: OldDesignator=CN3 NewDesignator=SAIDA
+Added Room: Name=Sheet1

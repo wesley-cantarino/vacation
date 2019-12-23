@@ -1,0 +1,39 @@
+Change Component Comment : Designator=R3 Old Comment=150 New Comment=1k5
+Change Component Comment : Designator=R5 Old Comment=150 New Comment=1k
+Change Component Comment : Designator=R8 Old Comment=150 New Comment=1k
+Change Component Designator: OldDesignator=* NewDesignator=15v
+Change Component Designator: OldDesignator=* NewDesignator=D2
+Change component parameters: Designator = "C1"; Footprint = "CAP_ALU_RADIAL_5MM"; UniqueID = "\EYWIIAQH"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Tensão"; Value = "?"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "10F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C2"; Footprint = "CAP_ALU_RADIAL_5MM"; UniqueID = "\ULGTCQIR"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Tensão"; Value = "?"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "10F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C3"; Footprint = "CAP_POL_RADIAL_16MM"; UniqueID = "\DNOAKDRV"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Tensão"; Value = "?"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "0.1nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R3"; Footprint = "RES_SMD_0805"; UniqueID = "\UTKCYONT"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "1k5"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R5"; Footprint = "RES_SMD_0805"; UniqueID = "\RLSBSEFU"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R8"; Footprint = "RES_SMD_0805"; UniqueID = "\IOZZDOBL"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Change Net Name : Old Net Name=Net*_K New Net Name=NetC4_1
+Added Pin To Net: NetName=Net15v_K Pin=15v-K
+Added Pin To Net: NetName=Net15v_K Pin=C2-1
+Added Pin To Net: NetName=Net15v_K Pin=Q1-1
+Added Pin To Net: NetName=Net15v_K Pin=R1-2
+Added Net: Name=Net15v_K
+Added Member To Class: ClassName=Sheet1 Member=Component D2 DIO_PTH_1N4007
