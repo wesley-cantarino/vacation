@@ -11,6 +11,10 @@ int set = 2, set_old = 2;
 const char* ssid = "h'(x)";
 const char* password = "T5e5L0e9C7o7M0u2N7i4C4a0C6o4E0s";
 
+IPAddress ip(192,168,1,20);
+IPAddress gateway(192,168,1,1);
+IPAddress subnet(255,255,255,0);
+
 WiFiServer server(80);
 String header;
 
@@ -71,7 +75,9 @@ void loop()
 
   wifi();
 
-  if (set == 1)
+  if(set == 0)
+    shotdowm_led();
+  else if (set == 1)
     combination();
   else if (set == 2)
     fade(100);
@@ -82,8 +88,12 @@ void loop()
   else if (set == 5)
     azulao();
   else if (set == 6)
-    verde_agua();
+    vermelhao_claro();
   else if (set == 7)
+    azul_agua();
+  else if (set == 8)
+    verde_agua();
+  else if (set == 9)
     lilas();
 }
 
@@ -131,7 +141,9 @@ void wifi ()
       }
     }
 
-    if (header.indexOf("GET /button1") >= 0)
+    if (header.indexOf("GET /button0") >= 0)
+      set = 0;
+    else if (header.indexOf("GET /button1") >= 0)
       set = 1;
     else if (header.indexOf("GET /button2") >= 0)
       set = 2;
@@ -145,6 +157,10 @@ void wifi ()
       set = 6;
     else if (header.indexOf("GET /button7") >= 0)
       set = 7;
+    else if (header.indexOf("GET /button7") >= 0)
+      set = 8;
+    else if (header.indexOf("GET /button7") >= 0)
+      set = 9;
 
     header = "";
     client.stop();
@@ -160,31 +176,128 @@ String all_html ()
   // Display the HTML web page
 
   _html += "<!DOCTYPE html><html>";
-
-  _html += "<head>";
-  _html += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">";
+  _html += "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">";
   _html += "<link rel=\"icon\" href=\"data:,\">";
 
+  _html += "<style>";
+  
+  _html += ".btn-group button {";
+  _html += "background-color: #4CAF50;";
+  _html += "border: 1px solid green; ";
+  _html += "color: white;";
+  _html += "padding: 10px 24px;";
+  _html += "cursor: pointer;";
+  _html += "float: left;";
+  _html += "}";
+
+  _html += ".btn-group:after {";
+  _html += "content: "";";
+  _html += "clear: both;";
+  _html += "display: table;";
+  _html += "}";
+
+  _html += ".btn-group button:not(:last-child) {";
+  _html += "border-right: none;";
+  _html += "}";
+
+  _html += ".btn-group button:hover {";
+  _html += "background-color: #3e8e41;";
+  _html += "}";
+
+  _html += "</style>";
+  _html += "</head>";
+
+  // Web Page Heading
+  _html += "<body>";
+
+  _html += "<h1>Web Server select function and color :D</h1>";
+  
+  _html += "<div class=\"btn-group\" style=\"width:100%\">";
+
+  _html += "<p><a href=\"/button0\"><button style=\"width:50%\" >Desligar</button></a></p>";
+
+	_html += "</div>";
+
+  _html += "<p></p>";
+  _html += "<p>Same function:</p>";
+	_html += "<div class=\"btn-group\" style=\"width:100%\">";
+
+  _html += "<p><a href=\"/button1\"><button style=\"width:50%\" >Pisca pisca</button></a></p>";
+  _html += "<p><a href=\"/button2\"><button style=\"width:50%\" >Fade</button></a></p>";
+
+	_html += "</div>";
+
+  _html += "<p></p>";
+  _html += "<p></p>";
+	_html += "<p>Basic color:</p>";
+
+	_html += "<div class=\"btn-group\" style=\"width:100%\">";
+
+ 	_html += "<p><a href=\"/button3\"><button style=\"width:33.3%\" href=\"/button3\">Vermelho</button></a></p>";
+ 	_html += "<p><a href=\"/button4\"><button style=\"width:33.3%\" href=\"/button4\">Verde</button></a></p>";
+ 	_html += "<p><a href=\"/button5\"><button style=\"width:33.3%\" href=\"/button5\">Azul</button></a></p>";
+
+	_html += "</div>";
+
+  _html += "<p></p>";
+  _html += "<p></p>";
+	_html += "<p>Same color</p>";
+	_html += "<div class=\"btn-group\" style=\"width:100%\">";
+
+ 	_html += "<p><a href=\"/button6\"><button style=\"width:25%\">vermelho claro</button></a></p>";
+ 	_html += "<p><a href=\"/button7\"><button style=\"width:25%\">azul agua</button></a></p>";
+  _html += "<p><a href=\"/button8\"><button style=\"width:25%\">verde agua</button></a></p>";
+  _html += "<p><a href=\"/button9\"><button style=\"width:25%\">Lilas</button></a></p>";
+
+	_html += "</div>";
+
+  _html += "</body></html>";
+
+  return _html;
+}
+
+String all_html_test ()
+{
+  String _html = "";
+  _html += "HTTP/1.1 200 OK";
+  _html += "Content-type:text/html";
+  _html += "Connection: close";
+  // Display the HTML web page
+
+  _html += "<!DOCTYPE html><html>";
+
+  _html += "<head>";
+
+  _html += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">";
+  _html += "<link rel=\"icon\" href=\"data:,\">";
+  
   _html += "<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}";
   _html += ".button { background-color: #195B6A; border: none; color: white; padding: 16px 40px;";
   _html += "text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}";
   _html += ".button2 {background-color: #77878A;}</style>";
+
   _html += "</head>";
 
   // Web Page Heading
-  	_html += "<h1>Web Server select function and color :D</h1>";
+  _html += "<body>";
+  _html += "<h1>Web Server select function and color :D</h1>";
 
-	_html += "<p>Same function:</p>";
+	/*_html += "<p>Same function:</p>";
 	_html += "<div class=\"btn-group\" style=\"width:100%\">";
- 	_html += "<button style=\"width:50%\" >Pisca pisca> </button>";
-  	_html += "<button style=\"width:50%\" >Fade       > </button>";
+
+  _html += "<p><a href=\"/button1\"><button style=\"width:50%\" >Pisca pisca></button></a></p>";
+  _html += "<p><a href=\"/button2\"><button style=\"width:50%\" >Fade></button></a></p>";
+
 	_html += "</div>";
 
 	_html += "<p>Basic color:</p>";
+
 	_html += "<div class=\"btn-group\" style=\"width:100%\">";
+
  	_html += "<button style=\"width:33.3%\" href=\"/button3\">Vermelho</button>";
  	_html += "<button style=\"width:33.3%\" href=\"/button4\">Verde</button>";
  	_html += "<button style=\"width:33.3%\" href=\"/button5\">Azul</button>";
+
 	_html += "</div>";
 
 	_html += "<p>Four buttons in a group:</p>";
@@ -193,7 +306,7 @@ String all_html ()
  	_html += "<button style=\"width:25%\">Samsung</button>";
   _html += "<button style=\"width:25%\">Sony</button>";
   _html += "<button style=\"width:25%\">HTC</button>";
-	_html += "</div>";
+	_html += "</div>";*/
 
  	_html += "</body></html>";
 
@@ -289,6 +402,20 @@ void azulao ()
 {
   digitalWrite(led_red, LOW);
   digitalWrite(led_gre, LOW);
+  digitalWrite(led_blu, HIGH);
+}
+
+void vermelhao_claro()
+{
+  digitalWrite(led_red, HIGH);
+  analogWrite(led_gre, 80);
+  analogWrite(led_blu, 80);
+}
+
+void azul_agua()
+{
+  analogWrite(led_red, 80);
+  analogWrite(led_gre, 180);
   digitalWrite(led_blu, HIGH);
 }
 
