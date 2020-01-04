@@ -2,7 +2,7 @@ int led_red = 14,
     led_gre = 12,
     led_blu = 13;
 
-int set = 2, set_old = 2;
+int set = 0, set_old = 0;
 
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
@@ -43,8 +43,7 @@ void setup()
   pinMode(led_gre, OUTPUT);
   pinMode(led_blu, OUTPUT);
 
-
-  ArduinoOTA.setHostname("ESP_quarto09");
+  /*
   ArduinoOTA.onStart([]() {
     Serial.println("Inicio...");
   });
@@ -62,25 +61,25 @@ void setup()
     else if (error == OTA_RECEIVE_ERROR) Serial.println("Falha na Recepcao");
     else if (error == OTA_END_ERROR) Serial.println("Falha no Fim");
   });
-  ArduinoOTA.begin();
+  ArduinoOTA.begin(); */
 }
 
 void loop()
 {
-  ArduinoOTA.handle();
+  //ArduinoOTA.handle();
 
   wifi();
 
   if (set == 1)
-    combination();
-  else if (set == 2)
     fade(100);
+  else if (set == 2)
+    combination();
   else if (set == 3)
-    vermelhao();
+    red();
   else if (set == 4)
-    verdao();
+    gre();
   else if (set == 5)
-    azulao();
+    blu();
   else if (set == 6)
     verde_agua();
   else if (set == 7)
@@ -95,7 +94,7 @@ void loop()
 
 
 void wifi ()
-{
+{/*
   WiFiClient client = server.available();
 
   if (client)
@@ -148,7 +147,7 @@ void wifi ()
 
     header = "";
     client.stop();
-  }
+  }*/
 }
 
 String all_html ()
@@ -160,80 +159,66 @@ String all_html ()
   // Display the HTML web page
 
   _html += "<!DOCTYPE html><html>";
-
-  _html += "<head>";
-  _html += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">";
+  _html += "<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">";
   _html += "<link rel=\"icon\" href=\"data:,\">";
-
+  /*
   _html += "<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}";
   _html += ".button { background-color: #195B6A; border: none; color: white; padding: 16px 40px;";
   _html += "text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;}";
-  _html += ".button2 {background-color: #77878A;}</style>";
-  _html += "</head>";
+  _html += ".button2 {background-color: #77878A;}</style></head>";
 
   // Web Page Heading
-  	_html += "<h1>Web Server select function and color :D</h1>";
+  _html += "<body><h1>Web Server select function and color :D</h1>";
 
-	_html += "<p>Same function:</p>";
-	_html += "<div class=\"btn-group\" style=\"width:100%\">";
- 	_html += "<button style=\"width:50%\" >Pisca pisca> </button>";
-  	_html += "<button style=\"width:50%\" >Fade       > </button>";
-	_html += "</div>";
+  _html += "<p><a href=\"/button1\"><button class=\"button\">pisca pisca</button></a></p>";
+  _html += "<p><a href=\"/button2\"><button class=\"button\">Fade <3</button></a></p>";
 
-	_html += "<p>Basic color:</p>";
-	_html += "<div class=\"btn-group\" style=\"width:100%\">";
- 	_html += "<button style=\"width:33.3%\" href=\"/button3\">Vermelho</button>";
- 	_html += "<button style=\"width:33.3%\" href=\"/button4\">Verde</button>";
- 	_html += "<button style=\"width:33.3%\" href=\"/button5\">Azul</button>";
-	_html += "</div>";
+  _html += "<p><a href=\"/button3\"><button class=\"button\">Red</button></a></p>";
+  _html += "<p><a href=\"/button4\"><button class=\"button\">Green</button></a></p>";
+  _html += "<p><a href=\"/button5\"><button class=\"button\">Blue</button></a></p>";
 
-	_html += "<p>Four buttons in a group:</p>";
-	_html += "<div class=\"btn-group\" style=\"width:100%\">";
- 	_html += "<button style=\"width:25%\">Apple</button>";
- 	_html += "<button style=\"width:25%\">Samsung</button>";
-  _html += "<button style=\"width:25%\">Sony</button>";
-  _html += "<button style=\"width:25%\">HTC</button>";
-	_html += "</div>";
+  _html += "<p><a href=\"/button6\"><button class=\"button\">Verde água</button></a></p>";
+  _html += "<p><a href=\"/button7\"><button class=\"button\">Lilas</button></a></p>";
 
- 	_html += "</body></html>";
-
+  _html += "</body></html>";
+  */
   return _html;
 }
 
 void fade (int del)
-{
-  Serial.println("primeiro for");
-  for (int i = 0; (i < 255) && (!breck_for()); i++)
-  {
-    analogWrite(led_red, i);
-    analogWrite(led_blu, 255 - i);
-    Serial.println(i);
+{ /*
+    Serial.println("primeiro for");
+    for (int i = 0; (i < 255) && (!breck_for()); i++)
+    {
+     analogWrite(led_red, i);
+     analogWrite(led_blu, 255 - i);
+     Serial.println(i);
 
-    wifi();
-    delay(del);
-  }
+     wifi();
+     delay(del);
+    }
 
-  Serial.println("segundo for");
-  for (int i = 0; (i < 255) && (!breck_for()); i++)
-  {
-    analogWrite(led_red, 255 - i);
-    analogWrite(led_gre, i);
-    Serial.println(i);
+    Serial.println("segundo for");
+    for (int i = 0; (i < 255) && (!breck_for()); i++)
+    {
+     analogWrite(led_red, 255 - i);
+     analogWrite(led_gre, i);
+     Serial.println(i);
 
-    wifi();
-    delay(del );
-  }
+     wifi();
+     delay(del );
+    }
 
-  Serial.println("terceiro for");
-  for (int i = 0; (i < 255) && (!breck_for()); i++)
-  {
-    analogWrite(led_gre, 255 - i);
-    analogWrite(led_blu, i);
-    Serial.println(i);
+    Serial.println("terceiro for");
+    for (int i = 0; (i < 255) && (!breck_for()); i++)
+    {
+     analogWrite(led_gre, 255 - i);
+     analogWrite(led_blu, i);
+     Serial.println(i);
 
-    wifi();
-    delay(del );
-  }
+     wifi();
+     delay(del );
+    }*/
 }
 
 bool breck_for ()
@@ -271,21 +256,21 @@ void combination ()
   shotdowm_led();
 }
 
-void vermelhao ()
+void red ()
 {
   digitalWrite(led_red, HIGH);
   digitalWrite(led_gre, LOW);
   digitalWrite(led_blu, LOW);
 }
 
-void verdao ()
+void gre ()
 {
   digitalWrite(led_red, LOW);
   digitalWrite(led_gre, HIGH);
   digitalWrite(led_blu, LOW);
 }
 
-void azulao ()
+void blu ()
 {
   digitalWrite(led_red, LOW);
   digitalWrite(led_gre, LOW);
