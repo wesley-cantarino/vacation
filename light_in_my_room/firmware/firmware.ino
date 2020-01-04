@@ -104,6 +104,14 @@ void loop()
     verde_agua();
   else if (set == 9)
     lilas();
+  else if (set == 10)
+    branco();
+  else if (set == 11)
+    azul_escuro();
+  else if (set == 12)
+    verde_escuro();
+  else if (set == 13)
+    amarelo();
 }
 
 
@@ -200,6 +208,26 @@ void wifi ()
       set_old = set;
       set = 9;
     }
+    else if (header.indexOf("GET /buttonN10") >= 0)
+    {
+      set_old = set;
+      set = 10;
+    }
+    else if (header.indexOf("GET /buttonN11") >= 0)
+    {
+      set_old = set;
+      set = 11;
+    }
+    else if (header.indexOf("GET /buttonN12") >= 0)
+    {
+      set_old = set;
+      set = 12;
+    }
+    else if (header.indexOf("GET /buttonN13") >= 0)
+    {
+      set_old = set;
+      set = 13;
+    }
 
     header = "";
     client.stop();
@@ -250,7 +278,7 @@ String all_html ()
   // Web Page Heading
   _html += "<body>";
 
-  _html += "<h1>Web Server select function and color :D</h1>";
+  _html += "<h1 style=\"text-align: center\">My Web page :D</h1>";
   
   _html += "<div class=\"btn-group\" style=\"width:100%\">";
 
@@ -260,10 +288,20 @@ String all_html ()
 	_html += "</div>";
 
   _html += "<br>";
-  _html += "<br>";
+  _html += "<p>Modo atual: ";
+  if(set == 0)
+    _html += "Desligado</p>";
+  else if ((set >= 1) && (set <= 2))
+    _html += "Funcoes</p>";
+  else if ((set >= 3) && (set <= 5))
+    _html += "Cores solidas</p>";
+  else if ((set >= 6) && (set <= 13))
+    _html += "Cores</p>";
+  
+
   _html += "<br>";
 
-  _html += "<p>Same function:</p>";
+  _html += "<p>Algumas funcoes:</p>";
 	_html += "<div class=\"btn-group\" style=\"width:100%\">";
 
   _html += "<p><a href=\"/button1\"><button style=\"width:50%\" >Pisca pisca</button></a></p>";
@@ -273,8 +311,31 @@ String all_html ()
 
   _html += "<br>";
   _html += "<br>";
-	_html += "<p>Basic color:</p>";
+	_html += "<p>Algumas cores:</p>";
 
+	_html += "<div class=\"btn-group\" style=\"width:100%\">";
+
+  _html += "<p><a href=\"/button6\"><button style=\"width:25%\">Vermelho claro</button></a></p>";
+ 	_html += "<p><a href=\"/button7\"><button style=\"width:25%\">Azul agua</button></a></p>";
+  _html += "<p><a href=\"/button8\"><button style=\"width:25%\">Verde agua</button></a></p>";
+  _html += "<p><a href=\"/button9\"><button style=\"width:25%\">Lilas sleep</button></a></p>";
+
+  _html += "<p><a href=\"/buttonN10\"><button style=\"width:25%\">Branco normal</button></a></p>";
+ 	_html += "<p><a href=\"/buttonN11\"><button style=\"width:25%\">Azul escuro</button></a></p>";
+  _html += "<p><a href=\"/buttonN12\"><button style=\"width:25%\">Verde escuro</button></a></p>";
+  _html += "<p><a href=\"/buttonN13\"><button style=\"width:25%\">Amarelo bebe</button></a></p>";
+
+	_html += "</div>";
+
+
+  _html += "<br>";
+  _html += "<br>";
+  _html += "<br>";
+  _html += "<br>";
+  _html += "<br>";
+  _html += "<hr>";
+  _html += "<br>";
+	_html += "<p>Cores solidas</p>";
 	_html += "<div class=\"btn-group\" style=\"width:100%\">";
 
  	_html += "<p><a href=\"/button3\"><button style=\"width:33.3%; background-color: rgb(245, 30, 30);\" href=\"/button3\">Vermelho</button></a></p>";
@@ -282,25 +343,15 @@ String all_html ()
  	_html += "<p><a href=\"/button5\"><button style=\"width:33.3%; background-color: rgb(30, 30, 245);\" href=\"/button5\">Azul</button></a></p>";
 
 	_html += "</div>";
-
-
+  
+  /*
   _html += "<br>";
   _html += "<br>";
-	_html += "<p>Same color</p>";
-	_html += "<div class=\"btn-group\" style=\"width:100%\">";
-
- 	_html += "<p><a href=\"/button6\"><button style=\"width:25%\">vermelho claro</button></a></p>";
- 	_html += "<p><a href=\"/button7\"><button style=\"width:25%\">azul agua</button></a></p>";
-  _html += "<p><a href=\"/button8\"><button style=\"width:25%\">verde agua</button></a></p>";
-  _html += "<p><a href=\"/button9\"><button style=\"width:25%\">Lilas sleep</button></a></p>";
-
-	_html += "</div>";
-
-  _html += "<p>set: ";
+  _html += "<p>for dev: <br> set: ";
   _html += set;
   _html += "; set old: ";
   _html += set_old;
-  _html += "</p>";
+  _html += "</p>";*/
 
   _html += "</body></html>";
 
@@ -467,12 +518,24 @@ void vermelhao_claro()
   analogWrite(led_gre, 150);
   analogWrite(led_blu, 150);
 }
+void branco()
+{
+  digitalWrite(led_red, HIGH);
+  digitalWrite(led_gre, HIGH);
+  digitalWrite(led_blu, HIGH);
+}
 
 void azul_agua()
 {
   analogWrite(led_red, 200);
   analogWrite(led_gre, 200);
   digitalWrite(led_blu, HIGH);
+}
+void azul_escuro()
+{
+  analogWrite(led_red, 50);
+  analogWrite(led_gre, 50);
+  analogWrite(led_blu, 200);
 }
 
 void verde_agua ()
@@ -481,12 +544,25 @@ void verde_agua ()
   digitalWrite(led_gre, HIGH);
   digitalWrite(led_blu, HIGH);
 }
+void verde_escuro ()
+{
+  digitalWrite(led_red, LOW);
+  analogWrite(led_gre, 200);
+  analogWrite(led_blu, 50);
+}
 
 void lilas ()
 {
   analogWrite(led_red, 180);
   analogWrite(led_gre, 50);
   analogWrite(led_blu, 180);
+}
+
+void amarelo ()
+{
+  analogWrite(led_red, 255);
+  analogWrite(led_gre, 220);
+  analogWrite(led_blu, 0);
 }
 
 void shotdowm_led()
