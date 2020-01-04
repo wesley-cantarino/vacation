@@ -1,3 +1,11 @@
+/*A fazer
+
+  (V) Ver se as cores estão boas 
+  ( ) Arrumar HTML
+  ( ) Olhar bug na troca de uma funcção para a outra
+  ( ) IP fixo
+*/
+
 int led_red = 14,
     led_gre = 12,
     led_blu = 13;
@@ -10,10 +18,6 @@ int set = 2, set_old = 2;
 
 const char* ssid = "h'(x)";
 const char* password = "T5e5L0e9C7o7M0u2N7i4C4a0C6o4E0s";
-
-IPAddress ip(192,168,1,20);
-IPAddress gateway(192,168,1,1);
-IPAddress subnet(255,255,255,0);
 
 WiFiServer server(80);
 String header;
@@ -37,6 +41,11 @@ void setup()
     if (resetar > 500000)
       ESP.restart();
   }
+
+  IPAddress ip(192,168,1,25);
+  IPAddress gateway(192,168,1,1);
+  IPAddress subnet(255,255,255,0);
+  WiFi.config(ip, gateway, subnet);
 
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
@@ -142,25 +151,55 @@ void wifi ()
     }
 
     if (header.indexOf("GET /button0") >= 0)
+    {
+      set_old = set;
       set = 0;
+    }
     else if (header.indexOf("GET /button1") >= 0)
+    {
+      set_old = set;
       set = 1;
+    }
     else if (header.indexOf("GET /button2") >= 0)
+    {
+      set_old = set;
       set = 2;
+    }
     else if (header.indexOf("GET /button3") >= 0)
+    {
+      set_old = set;
       set = 3;
+    }
     else if (header.indexOf("GET /button4") >= 0)
+    {
+      set_old = set;
       set = 4;
+    }
     else if (header.indexOf("GET /button5") >= 0)
+    {
+      set_old = set;
       set = 5;
+    }
     else if (header.indexOf("GET /button6") >= 0)
+    {
+      set_old = set;
       set = 6;
+    }
     else if (header.indexOf("GET /button7") >= 0)
+    {
+      set_old = set;
       set = 7;
-    else if (header.indexOf("GET /button7") >= 0)
+    }
+    else if (header.indexOf("GET /button8") >= 0)
+    {
+      set_old = set;
       set = 8;
-    else if (header.indexOf("GET /button7") >= 0)
+    }
+    else if (header.indexOf("GET /button9") >= 0)
+    {
+      set_old = set;
       set = 9;
+    }
 
     header = "";
     client.stop();
@@ -205,6 +244,7 @@ String all_html ()
   _html += "}";
 
   _html += "</style>";
+
   _html += "</head>";
 
   // Web Page Heading
@@ -214,11 +254,15 @@ String all_html ()
   
   _html += "<div class=\"btn-group\" style=\"width:100%\">";
 
-  _html += "<p><a href=\"/button0\"><button style=\"width:50%\" >Desligar</button></a></p>";
+  _html += "<br>";
+  _html += "<p><a href=\"/button0\"><button style=\"width:100%\" >Desligar</button></a></p>";
 
 	_html += "</div>";
 
-  _html += "<p></p>";
+  _html += "<br>";
+  _html += "<br>";
+  _html += "<br>";
+
   _html += "<p>Same function:</p>";
 	_html += "<div class=\"btn-group\" style=\"width:100%\">";
 
@@ -227,29 +271,36 @@ String all_html ()
 
 	_html += "</div>";
 
-  _html += "<p></p>";
-  _html += "<p></p>";
+  _html += "<br>";
+  _html += "<br>";
 	_html += "<p>Basic color:</p>";
 
 	_html += "<div class=\"btn-group\" style=\"width:100%\">";
 
- 	_html += "<p><a href=\"/button3\"><button style=\"width:33.3%\" href=\"/button3\">Vermelho</button></a></p>";
- 	_html += "<p><a href=\"/button4\"><button style=\"width:33.3%\" href=\"/button4\">Verde</button></a></p>";
- 	_html += "<p><a href=\"/button5\"><button style=\"width:33.3%\" href=\"/button5\">Azul</button></a></p>";
+ 	_html += "<p><a href=\"/button3\"><button style=\"width:33.3%; background-color: rgb(245, 30, 30);\" href=\"/button3\">Vermelho</button></a></p>";
+ 	_html += "<p><a href=\"/button4\"><button style=\"width:33.3%; background-color: rgb(30, 245, 30);\" href=\"/button4\">Verde</button></a></p>";
+ 	_html += "<p><a href=\"/button5\"><button style=\"width:33.3%; background-color: rgb(30, 30, 245);\" href=\"/button5\">Azul</button></a></p>";
 
 	_html += "</div>";
 
-  _html += "<p></p>";
-  _html += "<p></p>";
+
+  _html += "<br>";
+  _html += "<br>";
 	_html += "<p>Same color</p>";
 	_html += "<div class=\"btn-group\" style=\"width:100%\">";
 
  	_html += "<p><a href=\"/button6\"><button style=\"width:25%\">vermelho claro</button></a></p>";
  	_html += "<p><a href=\"/button7\"><button style=\"width:25%\">azul agua</button></a></p>";
   _html += "<p><a href=\"/button8\"><button style=\"width:25%\">verde agua</button></a></p>";
-  _html += "<p><a href=\"/button9\"><button style=\"width:25%\">Lilas</button></a></p>";
+  _html += "<p><a href=\"/button9\"><button style=\"width:25%\">Lilas sleep</button></a></p>";
 
 	_html += "</div>";
+
+  _html += "<p>set: ";
+  _html += set;
+  _html += "; set old: ";
+  _html += set_old;
+  _html += "</p>";
 
   _html += "</body></html>";
 
@@ -282,7 +333,7 @@ String all_html_test ()
   _html += "<body>";
   _html += "<h1>Web Server select function and color :D</h1>";
 
-	/*_html += "<p>Same function:</p>";
+	_html += "<p>Same function:</p>";
 	_html += "<div class=\"btn-group\" style=\"width:100%\">";
 
   _html += "<p><a href=\"/button1\"><button style=\"width:50%\" >Pisca pisca></button></a></p>";
@@ -306,7 +357,7 @@ String all_html_test ()
  	_html += "<button style=\"width:25%\">Samsung</button>";
   _html += "<button style=\"width:25%\">Sony</button>";
   _html += "<button style=\"width:25%\">HTC</button>";
-	_html += "</div>";*/
+	_html += "</div>";
 
  	_html += "</body></html>";
 
@@ -368,17 +419,22 @@ bool breck_for ()
 void combination ()
 {
   digitalWrite(led_red, HIGH);
+  wifi();
   delay(500);
   digitalWrite(led_gre, HIGH);
+  wifi();
   delay(500);
 
   digitalWrite(led_red, LOW);
+  wifi();
   delay(500);
 
   digitalWrite(led_blu, HIGH);
+  wifi();
   delay(500);
 
   digitalWrite(led_gre, LOW);
+  wifi();
   delay(500);
 
   shotdowm_led();
@@ -408,14 +464,14 @@ void azulao ()
 void vermelhao_claro()
 {
   digitalWrite(led_red, HIGH);
-  analogWrite(led_gre, 80);
-  analogWrite(led_blu, 80);
+  analogWrite(led_gre, 150);
+  analogWrite(led_blu, 150);
 }
 
 void azul_agua()
 {
-  analogWrite(led_red, 80);
-  analogWrite(led_gre, 180);
+  analogWrite(led_red, 200);
+  analogWrite(led_gre, 200);
   digitalWrite(led_blu, HIGH);
 }
 
