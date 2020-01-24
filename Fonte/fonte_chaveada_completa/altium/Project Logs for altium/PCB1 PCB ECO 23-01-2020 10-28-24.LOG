@@ -1,0 +1,158 @@
+Added Component: Designator=*1(DIO_PTH_DO35)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "12V"; VariantName = "[No Variations]"
+Added Component: Designator=*2(DIO_PTH_DO41)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "?"; VariantName = "[No Variations]"
+Added Component: Designator=*3(LED_Axial_5mm)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "?"; VariantName = "[No Variations]"
+Added Component: Designator=*4(DIV_TRAFO PLC)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Supplier 1"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "1297-1074-ND"; VariantName = "[No Variations]"
+Added Component: Designator=*5(DIO_PTH_DO41)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "?"; VariantName = "[No Variations]"
+Added Component: Designator=*6(DIO_PTH_DO41)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "?"; VariantName = "[No Variations]"
+Added Component: Designator=*7(SFH6106)
+Add component. Clean all parameters for all variants
+Added Component: Designator=C1(CAP_ALU_RADIAL_5MM)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Tensão"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100uF"; VariantName = "[No Variations]"
+Added Component: Designator=C2(CAP_POL_18x5mm)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Tensão"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "?F"; VariantName = "[No Variations]"
+Added Component: Designator=C3(CAP_ALU_RADIAL_5MM)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Tensão"; Value = "400V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "22uF"; VariantName = "[No Variations]"
+Added Component: Designator=C4(CAP_POL_RADIAL_16MM)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Tensão"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "4.7nF"; VariantName = "[No Variations]"
+Added Component: Designator=C5(CAP_ALU_RADIAL_5MM)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Tensão"; Value = "?"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "?F"; VariantName = "[No Variations]"
+Added Component: Designator=CN1(CN_KRE_2)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "?"; VariantName = "[No Variations]"
+Added Component: Designator=CN2(CN_KRE_2)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "?"; VariantName = "[No Variations]"
+Added Component: Designator=Q1(HEADER_1X3)
+Add component. Clean all parameters for all variants
+Added Component: Designator=Q2(HEADER_1X3)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R1(RES_PTH_7.62MM)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "330"; VariantName = "[No Variations]"
+Added Component: Designator=R2(RES_PTH_7.62MM)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1.6M"; VariantName = "[No Variations]"
+Added Component: Designator=R3(RES_PTH_7.62MM)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Component: Designator=R4(RES_PTH_7.62MM)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "?"; VariantName = "[No Variations]"
+Added Component: Designator=R5(RES-7.62mm)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Digikey part number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey price 1x"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey price 100x"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=Octo Pin=*1-A
+Added Pin To Net: NetName=Net*1_K Pin=*1-K
+Added Pin To Net: NetName=Net*2_A Pin=*2-A
+Added Pin To Net: NetName=Net*1_K Pin=*2-K
+Added Pin To Net: NetName=Net*3_A Pin=*3-A
+Added Pin To Net: NetName=GND Pin=*3-K
+Added Pin To Net: NetName=Net*4_2 Pin=*4-2
+Added Pin To Net: NetName=NetC3_1 Pin=*4-3
+Added Pin To Net: NetName=Net*4_4 Pin=*4-4
+Added Pin To Net: NetName=GND Pin=*4-7
+Added Pin To Net: NetName=Net*2_A Pin=*4-8
+Added Pin To Net: NetName=Net*5_A Pin=*5-A
+Added Pin To Net: NetName=Net*4_2 Pin=*5-K
+Added Pin To Net: NetName=GND Pin=*6-A
+Added Pin To Net: NetName=NetC3_1 Pin=*6-K
+Added Pin To Net: NetName=Octo Pin=*7-1
+Added Pin To Net: NetName=GND Pin=*7-2
+Added Pin To Net: NetName=I8 Pin=*7-3
+Added Pin To Net: NetName=Net*7_4 Pin=*7-4
+Added Pin To Net: NetName=Net*1_K Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=Net*4_2 Pin=C3-1
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=Net*4_7 Pin=C4-1
+Added Pin To Net: NetName=NetC3_1 Pin=C4-2
+Added Pin To Net: NetName=I8 Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C5-2
+Added Pin To Net: NetName=Net*1_K Pin=CN1-1
+Added Pin To Net: NetName=GND Pin=CN1-2
+Added Pin To Net: NetName=Net*5_A Pin=CN2-1
+Added Pin To Net: NetName=GND Pin=CN2-2
+Added Pin To Net: NetName=NetQ1_1 Pin=Q1-1
+Added Pin To Net: NetName=NetQ1_2 Pin=Q1-2
+Added Pin To Net: NetName=Net*4_4 Pin=Q1-3
+Added Pin To Net: NetName=Net*7_4 Pin=Q2-1
+Added Pin To Net: NetName=GND Pin=Q2-2
+Added Pin To Net: NetName=NetQ1_1 Pin=Q2-3
+Added Pin To Net: NetName=Net*3_A Pin=R1-1
+Added Pin To Net: NetName=Net*1_K Pin=R1-2
+Added Pin To Net: NetName=Net*4_2 Pin=R2-1
+Added Pin To Net: NetName=NetQ1_1 Pin=R2-2
+Added Pin To Net: NetName=Net*7_4 Pin=R3-1
+Added Pin To Net: NetName=NetQ1_2 Pin=R3-2
+Added Pin To Net: NetName=NetQ1_1 Pin=R4-1
+Added Pin To Net: NetName=Net*4_7 Pin=R4-2
+Added Pin To Net: NetName=NetQ1_2 Pin=R5-1
+Added Pin To Net: NetName=GND Pin=R5-2
+Change Net Name : Old Net Name=Net*4_7 New Net Name=NetC4_1
+Change Net Name : Old Net Name=NetC3_1 New Net Name=dio
+Added Member To Class: ClassName=Sheet1 Member=Component *1 DIO_ZENER_DO35
+Added Member To Class: ClassName=Sheet1 Member=Component *2 DIO_PTH_1N4007
+Added Member To Class: ClassName=Sheet1 Member=Component *3 LED_AXIAL_5MM
+Added Member To Class: ClassName=Sheet1 Member=Component *4 Tranformer PLC
+Added Member To Class: ClassName=Sheet1 Member=Component *5 DIO_SMD_1N4148
+Added Member To Class: ClassName=Sheet1 Member=Component *6 DIO_PTH_1N4007
+Added Member To Class: ClassName=Sheet1 Member=Component *7 CI_Optocoupler
+Added Member To Class: ClassName=Sheet1 Member=Component C1 Electrolytic Capacitor
+Added Member To Class: ClassName=Sheet1 Member=Component C2 ?F
+Added Member To Class: ClassName=Sheet1 Member=Component C3 Electrolytic Capacitor
+Added Member To Class: ClassName=Sheet1 Member=Component C4 CAP_POL_RADIAL_16MM
+Added Member To Class: ClassName=Sheet1 Member=Component C5 10uF
+Added Member To Class: ClassName=Sheet1 Member=Component CN1 saida
+Added Member To Class: ClassName=Sheet1 Member=Component CN2 ?
+Added Member To Class: ClassName=Sheet1 Member=Component Q1 NPN_BC817
+Added Member To Class: ClassName=Sheet1 Member=Component Q2 NPN_BC817
+Added Member To Class: ClassName=Sheet1 Member=Component R1 330
+Added Member To Class: ClassName=Sheet1 Member=Component R2 1.6M
+Added Member To Class: ClassName=Sheet1 Member=Component R3 1k
+Added Member To Class: ClassName=Sheet1 Member=Component R4 ?
+Added Member To Class: ClassName=Sheet1 Member=Component R5 *
+Added Room: Name=Sheet1
