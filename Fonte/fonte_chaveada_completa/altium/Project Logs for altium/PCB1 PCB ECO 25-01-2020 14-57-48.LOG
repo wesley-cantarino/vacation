@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=Octo Pin=*1-A
+Removed Pin From Net: NetName=dio Pin=*4-2
+Removed Pin From Net: NetName=Net*4_2 Pin=*4-4
+Removed Pin From Net: NetName=Net*4_4 Pin=*4-5
+Removed Pin From Net: NetName=GND Pin=*4-6
+Removed Pin From Net: NetName=Net*2_A Pin=*4-9
+Added Component: Designator=*8(DIO_PTH_DO35)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "12V"; VariantName = "[No Variations]"
+Added Component: Designator=*9(DIO_PTH_DO35)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Validação"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "12V"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=Net*4_2 Pin=*4-2
+Added Pin To Net: NetName=dio Pin=*4-3
+Added Pin To Net: NetName=Net*4_4 Pin=*4-4
+Added Pin To Net: NetName=GND Pin=*4-7
+Added Pin To Net: NetName=Net*2_A Pin=*4-8
+Added Pin To Net: NetName=Octo Pin=*8-A
+Added Pin To Net: NetName=Octo Pin=*9-A
+Added Pin To Net: NetName=Net*1_K Pin=*9-K
+Added Pin To Net: NetName=Net*1_A Pin=*1-A
+Added Pin To Net: NetName=Net*1_A Pin=*8-K
+Added Net: Name=Net*1_A
+Added Member To Class: ClassName=Sheet1 Member=Component *8 DIO_ZENER_DO35
+Added Member To Class: ClassName=Sheet1 Member=Component *9 DIO_ZENER_DO35
+Added Room: Name=Sheet1
